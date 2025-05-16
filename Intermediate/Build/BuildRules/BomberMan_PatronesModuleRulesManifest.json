@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\Mica\\Documents\\Unreal Projects\\BomberMan_Patrones\\Source\\BomberMan_Patrones\\BomberMan_Patrones.Build.cs",
+		"C:\\Users\\Mica\\Documents\\Unreal Projects\\BomberMan_Patrones\\Source\\BomberMan_Patrones.Target.cs",
+		"C:\\Users\\Mica\\Documents\\Unreal Projects\\BomberMan_Patrones\\Source\\BomberMan_PatronesEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.4"
+}
