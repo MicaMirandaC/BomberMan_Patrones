@@ -15,10 +15,6 @@ public:
 	// Sets default values for this actor's properties
 	ADirectorLaberinto();
 
-private:
-	//El Constructor Actor, que debe ser un ConstructorDeAlojamiento
-	IILaberintoBuilder* LaberintoBuilder;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -28,11 +24,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 public:
-	void EstablecerILaberintoBuilder(IILaberintoBuilder* _Builder);
+	void SetLaberintoBuilder(AActor* Builder);
+	class ALaberinto* GetLaberinto();
 
-	void ConstruirTodo();
-	//void ConstruirPuertas();
-	//void ConstruirObstaculos();
-	void LaberintoCompleto();
+private:
+	IILaberintoBuilder* LaberintoBuilder;
 };
 

@@ -2,6 +2,7 @@
 
 
 #include "DirectorLaberinto.h"
+#include "ILaberintoBuilder.h"	
 #include "Laberinto.h"
 
 // Sets default values
@@ -26,34 +27,21 @@ void ADirectorLaberinto::Tick(float DeltaTime)
 
 }
 
-void ADirectorLaberinto::EstablecerILaberintoBuilder(IILaberintoBuilder* _Builder)
+void ADirectorLaberinto::SetLaberintoBuilder(AActor* Builder)
 {
-	LaberintoBuilder = _Builder;
+    LaberintoBuilder = Cast<IILaberintoBuilder>(Builder);
+    if (!LaberintoBuilder)
+    {
+        UE_LOG(LogTemp, Error, TEXT("SetBuilder(): El actor no implementa IILaberintoBuilder."));
+    }
 }
 
-void ADirectorLaberinto::ConstruirTodo()
+ALaberinto* ADirectorLaberinto::GetLaberinto()
 {
-	if (LaberintoBuilder)
-	{
-		LaberintoBuilder->LaberintoCompleto();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Builder no asignado"));
-	}
+    if (LaberintoBuilder)
+    {
+        return LaberintoBuilder->GetLaberinto();
+    }
+    UE_LOG(LogTemp, Error, TEXT("GetLaberinto(): Builder no asignado."));
+    return nullptr;
 }
-/*
-void ADirectorLaberinto::ConstruirPuertas()
-{
-}
-
-void ADirectorLaberinto::ConstruirObstaculos()
-{
-}
-
-void ADirectorLaberinto::LaberintoCompleto()
-{
-}*/
-
-
-

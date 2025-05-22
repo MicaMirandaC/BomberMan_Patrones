@@ -19,6 +19,20 @@ ALaberintoConcreto::ALaberintoConcreto()
     // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
 
+	// Agregar tipos de bloques al mapa
+	// Mapeo tipo clase de bloque
+	MapaDeBloques.Add(1, ABloqueMadera::StaticClass());
+	MapaDeBloques.Add(2, ABloqueConcreto::StaticClass());
+	MapaDeBloques.Add(3, ABloqueLadrillo::StaticClass());
+	MapaDeBloques.Add(4, ABloqueAcero::StaticClass());
+	MapaDeBloques.Add(5, ABloqueRotador::StaticClass());
+	MapaDeBloques.Add(6, ABloqueMov::StaticClass());
+	
+
+	MapaDeObstaculos.Add(7, AObstaculo::StaticClass());
+
+	MapaDePuertas.Add(8, APuerta::StaticClass());
+
 }
 
 // Called when the game starts or when spawned
@@ -26,8 +40,12 @@ void ALaberintoConcreto::BeginPlay()
 {
     Super::BeginPlay();
 
-    Laberinto = GetWorld()->SpawnActor<ALaberinto>(ALaberinto::StaticClass());
+	Laberinto = GetWorld()->SpawnActor<ALaberinto>(ALaberinto::StaticClass());
 
+	ConstruirMuros();
+	ConstruirBloques();
+	ConstruirObstaculos();
+	ConstruirPuertas();
 }
 
 // Called every frame
@@ -37,68 +55,82 @@ void ALaberintoConcreto::Tick(float DeltaTime)
 
 }
 
-void ALaberintoConcreto::ConstruirBloques(TArray<TArray<int32>>& Mapa, int32 TipoBloque, TSubclassOf<AActor> ClaseBloque)
-{
-    if (!Laberinto) return;
-
-    for (int32 i = 0; i < Mapa.Num(); i++)
-    {
-        for (int32 j = 0; j < Mapa[i].Num(); j++)
-        {
-            if (Mapa[i][j] == TipoBloque)
-            {
-                FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
-                GetWorld()->SpawnActor<AActor>(ClaseBloque, Posicion, FRotator::ZeroRotator);
-            }
-        }
-    }
-}
-
-void ALaberintoConcreto::ConstruirPuertas(TArray<TArray<int32>>& Mapa, int32 TipoPuerta, TSubclassOf<AActor> ClasePuerta)
+void ALaberintoConcreto::ConstruirMuros()
 {
 	if (!Laberinto) return;
-	for (int32 i = 0; i < Mapa.Num(); i++)
+	for (int32 i = 0; i < Laberinto->aMapaBloques.Num(); i++)
 	{
-		for (int32 j = 0; j < Mapa[i].Num(); j++)
+		for (int32 j = 0; j < Laberinto->aMapaBloques[i].Num(); j++)
 		{
-			if (Mapa[i][j] == TipoPuerta)
+			int32 Tipo = Laberinto->aMapaBloques[i][j];
+			//Para verificar si un objeto, valor o clave está presente dentro de una colección
+			if (Tipo == 4 && MapaDeBloques.Contains(Tipo))
 			{
 				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
-				GetWorld()->SpawnActor<AActor>(ClasePuerta, Posicion, FRotator::ZeroRotator);
+				GetWorld()->SpawnActor<AActor>(MapaDeBloques[Tipo], Posicion, FRotator::ZeroRotator);
 			}
 		}
 	}
 }
 
-void ALaberintoConcreto::ConstruirObstaculos(TArray<TArray<int32>>& Mapa, int32 TipoObstaculo, TSubclassOf<AActor> ClaseObstaculo)
+void ALaberintoConcreto::ConstruirBloques()
 {
 	if (!Laberinto) return;
-	for (int32 i = 0; i < Mapa.Num(); i++)
+
+	for (int32 i = 0; i < Laberinto->aMapaBloques.Num(); i++)
 	{
-		for (int32 j = 0; j < Mapa[i].Num(); j++)
+		for (int32 j = 0; j < Laberinto->aMapaBloques[i].Num(); j++)
 		{
-			if (Mapa[i][j] == TipoObstaculo)
+			int32 Tipo = Laberinto->aMapaBloques[i][j];
+
+			if (Tipo != 0 && Tipo != 4 && Tipo != 7 && Tipo != 8)
 			{
 				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
-				GetWorld()->SpawnActor<AActor>(ClaseObstaculo, Posicion, FRotator::ZeroRotator);
+				GetWorld()->SpawnActor<AActor>(MapaDeBloques[Tipo], Posicion, FRotator::ZeroRotator);
 			}
 		}
 	}
 }
 
-void ALaberintoConcreto::LaberintoCompleto()
+void ALaberintoConcreto::ConstruirPuertas()
 {
-    if (!Laberinto) return;
+	if (!Laberinto) return;
 
-    // Mapa de bloques (madera, concreto, acero, ladrillo)
-    ConstruirBloques(Laberinto->aMapaBloques, 1, ABloqueMadera::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 2, ABloqueConcreto::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 3, ABloqueAcero::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 4, ABloqueLadrillo::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 5, ABloqueRotador::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 6, ABloqueMov::StaticClass());
+	for (int32 i = 0; i < Laberinto->aMapaPuertas.Num(); i++)
+	{
+		for (int32 j = 0; j < Laberinto->aMapaPuertas[i].Num(); j++)
+		{
+			int32 Tipo = Laberinto->aMapaPuertas[i][j];
 
-    ConstruirObstaculos(Laberinto->aMapaObstaculo, 7, AObstaculo::StaticClass());
-    ConstruirPuertas(Laberinto->aMapaPuertas, 8, APuerta::StaticClass());
-
+			if (Tipo == 8 && Tipo != 0)
+			{
+				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
+				GetWorld()->SpawnActor<AActor>(MapaDePuertas[8], Posicion, FRotator::ZeroRotator);
+			}
+		}
+	}
 }
+
+void ALaberintoConcreto::ConstruirObstaculos()
+{
+	if (!Laberinto) return;
+
+	for (int32 i = 0; i < Laberinto->aMapaObstaculos.Num(); i++)
+	{
+		for (int32 j = 0; j < Laberinto->aMapaObstaculos[i].Num(); j++)
+		{
+			int32 Tipo = Laberinto->aMapaObstaculos[i][j];
+
+			if (Tipo == 7 && Tipo !=0)
+			{
+				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
+				GetWorld()->SpawnActor<AActor>(MapaDeObstaculos[7], Posicion, FRotator::ZeroRotator);
+			}
+		}
+	}
+}
+ALaberinto* ALaberintoConcreto::GetLaberinto()
+{
+	return Laberinto;
+}
+

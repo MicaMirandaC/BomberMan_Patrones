@@ -11,6 +11,8 @@
     <None Include="..\..\Source\BomberMan_PatronesEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
@@ -63,6 +65,9 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\BloqueAcero.cpp">
       <Filter>Source\BomberMan_Patrones\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\BloqueClone.cpp">
+      <Filter>Source\BomberMan_Patrones\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\BloqueConcreto.cpp">
       <Filter>Source\BomberMan_Patrones\Private</Filter>
     </ClCompile>
@@ -102,7 +107,19 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\ILaberintoBuilder.cpp">
       <Filter>Source\BomberMan_Patrones\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\ILaberintoBuilder2.cpp">
+      <Filter>Source\BomberMan_Patrones\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\IPrototype.cpp">
+      <Filter>Source\BomberMan_Patrones\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\Laberinto.cpp">
+      <Filter>Source\BomberMan_Patrones\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\Laberinto2.cpp">
+      <Filter>Source\BomberMan_Patrones\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\Laberinto2Concreto.cpp">
       <Filter>Source\BomberMan_Patrones\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\LaberintoConcreto.cpp">
@@ -121,6 +138,9 @@
       <Filter>Source\BomberMan_Patrones\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\BloqueAcero.h">
+      <Filter>Source\BomberMan_Patrones\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\BloqueClone.h">
       <Filter>Source\BomberMan_Patrones\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\BloqueConcreto.h">
@@ -162,7 +182,19 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\ILaberintoBuilder.h">
       <Filter>Source\BomberMan_Patrones\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\ILaberintoBuilder2.h">
+      <Filter>Source\BomberMan_Patrones\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\IPrototype.h">
+      <Filter>Source\BomberMan_Patrones\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\Laberinto.h">
+      <Filter>Source\BomberMan_Patrones\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\Laberinto2.h">
+      <Filter>Source\BomberMan_Patrones\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\Laberinto2Concreto.h">
       <Filter>Source\BomberMan_Patrones\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\LaberintoConcreto.h">

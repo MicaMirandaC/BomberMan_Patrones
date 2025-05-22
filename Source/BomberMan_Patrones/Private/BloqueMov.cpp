@@ -21,7 +21,7 @@ ABloqueMov::ABloqueMov()
     }
     //Tiempo antes de que el bloque elija una nueva dirección
     //LOS 10 SEGUNDOS PARA EL CAMBIO
-    TiempoEntreMovimientos = 10.0f;
+    TiempoEntreMovimientos = 5.0f;
     VelocidadMovimiento = 200.0f; // Ajusta para hacerlo más lento o rápido
     TiempoDesdeUltimoMovimiento = 0.0f;
     bMoviendoAObjetivo = false;

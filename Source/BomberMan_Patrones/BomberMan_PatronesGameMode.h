@@ -18,14 +18,19 @@ private:
 
 	//El actor constructor
 	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
-	class ALaberintoConcreto* BuilderLab;
+	class ADirectorLaberinto* Director;
 
 	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
-	class ADirectorLaberinto* Director;
+	class ALaberintoConcreto* Builder;
+
+	// Referencia al laberinto construido
+	class ALaberinto* Laberinto;
 
 public:
 	virtual void BeginPlay() override;
 
 public:
-	
+	//PROTOTYPE
+	UPROPERTY(EditAnywhere)
+	AActor* BloquePrototype;
 };

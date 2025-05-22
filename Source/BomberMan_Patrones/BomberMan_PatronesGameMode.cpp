@@ -12,26 +12,92 @@
 #include "ILaberintoBuilder.h"
 #include "DirectorLaberinto.h"
 #include "LaberintoConcreto.h"
+#include "IPrototype.h"
+#include "BloqueClone.h"
 //include "FabricaBloques.h"
 
 ABomberMan_PatronesGameMode::ABomberMan_PatronesGameMode()
 {
+	PrimaryActorTick.bCanEverTick = false;
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter"));
-	if (PlayerPawnBPClass.Class != NULL)
-	{
-		DefaultPawnClass = PlayerPawnBPClass.Class;
-	}
+	//static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter"));
+	//if (PlayerPawnBPClass.Class != NULL)
+	//{
+	//	DefaultPawnClass = PlayerPawnBPClass.Class;
+	//}
 }
 
 void ABomberMan_PatronesGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
+	// Spawn del Builder (LaberintoConcreto)
+	Builder = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
+
+	// Spawn del Director
 	Director = GetWorld()->SpawnActor<ADirectorLaberinto>(ADirectorLaberinto::StaticClass());
-	Director->EstablecerILaberintoBuilder(BuilderLab);
-	Director->ConstruirTodo();
+
+	if (Builder && Director)
+	{
+		// Asignar el Builder al Director
+		Director->SetLaberintoBuilder(Builder);
+
+		// Obtener el Laberinto construido
+		Laberinto = Director->GetLaberinto();
+
+		if (Laberinto)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("¡Laberinto construido con éxito!"));
+		}
+		else
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("No se pudo construir el laberinto."));
+		}
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Error al spawnear el Builder o el Director."));
+	}
+
+//PROTOTYPE
+	//Lo caste porque clon esta en la interfas y no en el bloque
+	/*
+	if (!BloquePrototype)
+	{
+		UE_LOG(LogTemp, Error, TEXT("BloquePrototype es nullptr, no se puede clonar"));
+		return; // Salir si el prototipo no existe
+	}
+
+	if (IIPrototype* Prototype = Cast<IIPrototype>(BloquePrototype))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("BloquePrototype es válido, comenzando la clonación"));
+
+		for (int x = 0; x < 5; ++x)
+		{
+			FVector Location = FVector(x * 200.f, 0.f, 100.f); // Ajuste en Z para que sea visible
+			UE_LOG(LogTemp, Warning, TEXT("Intentando clonar bloque en posición X: %d"), x);
+
+			AActor* Clon = Prototype->Clone(Location, FRotator::ZeroRotator);
+
+			if (Clon)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Bloque clonado exitosamente en %s"), *Location.ToString());
+			}
+			else
+			{
+				UE_LOG(LogTemp, Error, TEXT("Falló la clonación del bloque"));
+			}
+
+	}
+	if (IIPrototype* Prototype = Cast<IIPrototype>(BloquePrototype))
+	{
+		for (int x = 0; x < 5; ++x)
+		{
+			FVector Location = FVector(x * 200.f, 0.f, 0.f);
+			Prototype->Clone(Location, FRotator::ZeroRotator);
+		}
+	}*/
+}
 	
 	/*
 	AFabricaBloques* FabricaBloques = GetWorld()->SpawnActor<AFabricaBloques>(AFabricaBloques::StaticClass());
@@ -76,7 +142,7 @@ void ABomberMan_PatronesGameMode::BeginPlay()
 			}
 		}
 	}*/
-}
+
 /*
 void ABomberMan_PatronesGameMode::SpawnBloque(FVector posicion, int32 tipoBloque)
 {
