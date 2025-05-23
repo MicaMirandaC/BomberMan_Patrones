@@ -14,23 +14,21 @@ class ABomberMan_PatronesGameMode : public AGameModeBase
 public:
 	ABomberMan_PatronesGameMode();
 
+public:
+	virtual void BeginPlay() override;
+
 private:
 
 	//El actor constructor
 	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
-	class ADirectorLaberinto* Director;
+	class ADirectorLaberinto* DirectorLab;
 
 	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
-	class ALaberintoConcreto* Builder;
+	class ALaberintoConcreto* BuilderLab;
 
-	// Referencia al laberinto construido
-	class ALaberinto* Laberinto;
-
-public:
-	virtual void BeginPlay() override;
 
 public:
 	//PROTOTYPE
-	UPROPERTY(EditAnywhere)
-	AActor* BloquePrototype;
+	//UPROPERTY(EditAnywhere)
+	//AActor* BloquePrototype;
 };

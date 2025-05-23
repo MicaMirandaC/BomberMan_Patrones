@@ -41,11 +41,6 @@ void ALaberintoConcreto::BeginPlay()
     Super::BeginPlay();
 
 	Laberinto = GetWorld()->SpawnActor<ALaberinto>(ALaberinto::StaticClass());
-
-	ConstruirMuros();
-	ConstruirBloques();
-	ConstruirObstaculos();
-	ConstruirPuertas();
 }
 
 // Called every frame
@@ -129,8 +124,8 @@ void ALaberintoConcreto::ConstruirObstaculos()
 		}
 	}
 }
+
 ALaberinto* ALaberintoConcreto::GetLaberinto()
 {
 	return Laberinto;
 }
-

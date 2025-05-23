@@ -22,8 +22,7 @@ private:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-public:
-	virtual ALaberinto* GetLaberinto() override;
+
 public:
 
 	// Called every frame
@@ -35,6 +34,7 @@ public:
 	void ConstruirPuertas() override;
 	void ConstruirObstaculos() override;
 	void ConstruirMuros() override;
+	virtual class ALaberinto* GetLaberinto() override;
 	
 	//TMap: Asocia los numeros enteros con las subclases derivadas de actor
 	// Mapeos para cada tipo

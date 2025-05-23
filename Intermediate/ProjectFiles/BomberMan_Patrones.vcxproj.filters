@@ -101,6 +101,9 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\FabricaBloques.cpp">
       <Filter>Source\BomberMan_Patrones\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\Facade.cpp">
+      <Filter>Source\BomberMan_Patrones\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\ILaberinto.cpp">
       <Filter>Source\BomberMan_Patrones\Private</Filter>
     </ClCompile>
@@ -174,6 +177,9 @@
       <Filter>Source\BomberMan_Patrones\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\FabricaBloques.h">
+      <Filter>Source\BomberMan_Patrones\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\Facade.h">
       <Filter>Source\BomberMan_Patrones\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\ILaberinto.h">

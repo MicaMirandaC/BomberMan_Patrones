@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
+
 #pragma once
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "Laberinto.h"
 #include "ILaberintoBuilder.generated.h"
 
 // This class does not need to be modified.
@@ -23,11 +23,10 @@ class BOMBERMAN_PATRONES_API IILaberintoBuilder
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 	//Las funciones virtuales puras
-	virtual ALaberinto* GetLaberinto() = 0;
 
 	virtual void ConstruirMuros() = 0;
 	virtual void ConstruirBloques() = 0;
 	virtual void ConstruirPuertas() = 0;
 	virtual void ConstruirObstaculos() = 0;
-	
+	virtual class ALaberinto* GetLaberinto() = 0;
 };

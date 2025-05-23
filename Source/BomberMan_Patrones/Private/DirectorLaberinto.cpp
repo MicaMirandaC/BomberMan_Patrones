@@ -26,22 +26,41 @@ void ADirectorLaberinto::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-
-void ADirectorLaberinto::SetLaberintoBuilder(AActor* Builder)
+void ADirectorLaberinto::EstablecerILaberintoBuilder(IILaberintoBuilder* Builder)
 {
-    LaberintoBuilder = Cast<IILaberintoBuilder>(Builder);
-    if (!LaberintoBuilder)
-    {
-        UE_LOG(LogTemp, Error, TEXT("SetBuilder(): El actor no implementa IILaberintoBuilder."));
-    }
+	LaberintoBuilder = Cast<IILaberintoBuilder>(Builder);
+	//Cast the passed Actor and set the Builder
+	if (!LaberintoBuilder) //Log Error if cast fails
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red,
+			TEXT("Invalid Cast! See Output log for more details"));
+	}
 }
 
 ALaberinto* ADirectorLaberinto::GetLaberinto()
 {
-    if (LaberintoBuilder)
-    {
-        return LaberintoBuilder->GetLaberinto();
-    }
-    UE_LOG(LogTemp, Error, TEXT("GetLaberinto(): Builder no asignado."));
-    return nullptr;
+	if (LaberintoBuilder)
+	{
+		//Returns the Lodging of the Builder
+		return LaberintoBuilder->GetLaberinto();
+	}
+	//Log if the Builder is NULL
+	UE_LOG(LogTemp, Error, TEXT("GetLodging(): Return nullptr"));
+	return nullptr;
+}
+
+void ADirectorLaberinto::ConstruirLaberinto()
+{
+	if (!LaberintoBuilder)
+	{
+		UE_LOG(LogTemp, Error,
+			TEXT("ConstruirLaberinto(): LaberintoBuilder es NULL, asegúrate de inicializarlo."));
+		return;
+	}
+
+	// Estas líneas se ejecutan solo si el builder está correctamente asignado
+	LaberintoBuilder->ConstruirBloques();
+	LaberintoBuilder->ConstruirMuros();
+	LaberintoBuilder->ConstruirPuertas();
+	LaberintoBuilder->ConstruirObstaculos();
 }
