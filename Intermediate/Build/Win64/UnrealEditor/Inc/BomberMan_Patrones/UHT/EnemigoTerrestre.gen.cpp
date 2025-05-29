@@ -32,7 +32,6 @@ struct Z_Construct_UClass_AEnemigoTerrestre_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * \n */" },
 #endif
-		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "EnemigoTerrestre.h" },
 		{ "ModuleRelativePath", "Public/EnemigoTerrestre.h" },
 	};
@@ -50,7 +49,7 @@ UObject* (*const Z_Construct_UClass_AEnemigoTerrestre_Statics::DependentSingleto
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemigoTerrestre_Statics::DependentSingletons) < 16);
 const UECodeGen_Private::FClassParams Z_Construct_UClass_AEnemigoTerrestre_Statics::ClassParams = {
 	&AEnemigoTerrestre::StaticClass,
-	"Game",
+	"Engine",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	nullptr,
@@ -75,7 +74,6 @@ template<> BOMBERMAN_PATRONES_API UClass* StaticClass<AEnemigoTerrestre>()
 {
 	return AEnemigoTerrestre::StaticClass();
 }
-AEnemigoTerrestre::AEnemigoTerrestre() {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(AEnemigoTerrestre);
 AEnemigoTerrestre::~AEnemigoTerrestre() {}
 // End Class AEnemigoTerrestre
@@ -84,10 +82,10 @@ AEnemigoTerrestre::~AEnemigoTerrestre() {}
 struct Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemigoTerrestre, AEnemigoTerrestre::StaticClass, TEXT("AEnemigoTerrestre"), &Z_Registration_Info_UClass_AEnemigoTerrestre, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemigoTerrestre), 931243467U) },
+		{ Z_Construct_UClass_AEnemigoTerrestre, AEnemigoTerrestre::StaticClass, TEXT("AEnemigoTerrestre"), &Z_Registration_Info_UClass_AEnemigoTerrestre, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemigoTerrestre), 2970295384U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre_h_1043293394(TEXT("/Script/BomberMan_Patrones"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre_h_2962905814(TEXT("/Script/BomberMan_Patrones"),
 	Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

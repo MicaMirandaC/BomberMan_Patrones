@@ -20,8 +20,13 @@ class BOMBERMAN_PATRONES_API IIPrototype
 {
 	GENERATED_BODY()
 
-	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-
-	virtual AActor* Clone(FVector SpawnLocation, FRotator SpawnRotation) = 0;
+	//Clona un bloque con una posición y rotación específica.
+	virtual AActor* Clonar(FVector Pos, FRotator Rot) = 0;
+	
+	
+	
+	
+	//Funcion para ajustes personalizados del clon
+	//virtual void Configurar(FString Nombre) = 0;
 };

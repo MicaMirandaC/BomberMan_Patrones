@@ -3,22 +3,17 @@
 #include "BomberMan_PatronesGameMode.h"
 #include "BomberMan_PatronesCharacter.h"
 #include "UObject/ConstructorHelpers.h"
-#include "Bloque.h"
-#include "BloqueAcero.h"
-#include "BloqueConcreto.h"
-#include "BloqueLadrillo.h"
-#include "BloqueMadera.h"
 #include "Laberinto.h"
 #include "ILaberintoBuilder.h"
 #include "DirectorLaberinto.h"
 #include "LaberintoConcreto.h"
 #include "IPrototype.h"
-#include "BloqueClone.h"
-//include "FabricaBloques.h"
+#include "BloqueEspecial.h"
+#include "EnemigoFacade.h"
 
 ABomberMan_PatronesGameMode::ABomberMan_PatronesGameMode()
 {
-	//PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = true;
 
 	//set default pawn class to our Blueprinted character;
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter"));
@@ -40,48 +35,40 @@ void ABomberMan_PatronesGameMode::BeginPlay()
 
 	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
 	
+	DirectorLab->ConstruirLaberinto();	
+	
 	ALaberinto* Laberinto = DirectorLab->GetLaberinto();
+
+	//PROTOTYPE
 	
-	//Director->ConstruirTodo();
-	
-//PROTOTYPE
-	//Lo caste porque clon esta en la interfas y no en el bloque
-	/*
-	if (!BloquePrototype)
-	{
-		UE_LOG(LogTemp, Error, TEXT("BloquePrototype es nullptr, no se puede clonar"));
-		return; // Salir si el prototipo no existe
-	}
+	// Crear un bloque base (el prototipo)
+	BloqueBase = GetWorld()->SpawnActor<ABloqueEspecial>();
 
-	if (IIPrototype* Prototype = Cast<IIPrototype>(BloquePrototype))
-	{
-		UE_LOG(LogTemp, Warning, TEXT("BloquePrototype es válido, comenzando la clonación"));
 
-		for (int x = 0; x < 5; ++x)
+	// Clonar múltiples veces
+	for (int32 i = 0; i < 5; i++)
+	{
+		FVector Pos = FVector(300.f * (i + 1), 0.f, 0.f);
+		FRotator Rot = FRotator::ZeroRotator;
+
+		AActor* NuevoBloque = BloqueBase->Clonar(Pos, Rot);
+
+		if (ABloqueEspecial* Clon = Cast<ABloqueEspecial>(NuevoBloque))
 		{
-			FVector Location = FVector(x * 200.f, 0.f, 100.f); // Ajuste en Z para que sea visible
-			UE_LOG(LogTemp, Warning, TEXT("Intentando clonar bloque en posición X: %d"), x);
-
-			AActor* Clon = Prototype->Clone(Location, FRotator::ZeroRotator);
-
-			if (Clon)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("Bloque clonado exitosamente en %s"), *Location.ToString());
-			}
-			else
-			{
-				UE_LOG(LogTemp, Error, TEXT("Falló la clonación del bloque"));
-			}
-
-	}
-	if (IIPrototype* Prototype = Cast<IIPrototype>(BloquePrototype))
-	{
-		for (int x = 0; x < 5; ++x)
-		{
-			FVector Location = FVector(x * 200.f, 0.f, 0.f);
-			Prototype->Clone(Location, FRotator::ZeroRotator);
+			Clon->Configurar(FString::Printf(TEXT("Bloque_%d"), i + 1));
 		}
-	}*/
+	}
+
+	//Facade
+	auto Facade = GetWorld()->SpawnActor<AEnemigoFacade>();
+
+	Facade->Custodiar();
+
+	FTimerHandle Timer;
+	GetWorld()->GetTimerManager().SetTimer(Timer, [=]()
+		{
+			Facade->Atacar();
+		}, 3.0f, false);
 }
 	
 	

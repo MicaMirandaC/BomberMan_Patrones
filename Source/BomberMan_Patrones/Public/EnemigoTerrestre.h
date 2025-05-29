@@ -13,5 +13,14 @@ UCLASS()
 class BOMBERMAN_PATRONES_API AEnemigoTerrestre : public AEnemigo
 {
 	GENERATED_BODY()
-	
+
+public:
+	AEnemigoTerrestre();
+
+public:
+	// Sobrescribimos las funciones virtuales
+	virtual void Custodia() override;
+	virtual void Ataca() override;
+
+	virtual FString NombreDelEnemigo() override;
 };

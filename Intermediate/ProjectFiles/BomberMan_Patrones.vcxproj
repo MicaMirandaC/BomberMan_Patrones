@@ -285,10 +285,10 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\BloqueAcero.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\BloqueClone.cpp">
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\BloqueConcreto.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\BloqueConcreto.cpp">
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\BloqueEspecial.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\BloqueLadrillo.cpp">
@@ -315,7 +315,13 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\EnemigoAereo.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\EnemigoFacade.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\EnemigoTerrestre.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\EnemigoTerrestre2.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\FabricaBloques.cpp">
@@ -324,25 +330,13 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\Facade.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\ILaberinto.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\ILaberintoBuilder.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\ILaberintoBuilder2.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\IPrototype.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\Laberinto.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\Laberinto2.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\Laberinto2Concreto.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Private\LaberintoConcreto.cpp">
@@ -360,10 +354,10 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\BloqueAcero.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\BloqueClone.h">
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\BloqueConcreto.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\BloqueConcreto.h">
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\BloqueEspecial.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\BloqueLadrillo.h">
@@ -390,7 +384,13 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\EnemigoAereo.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\EnemigoFacade.h">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\EnemigoTerrestre.h">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\EnemigoTerrestre2.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\FabricaBloques.h">
@@ -399,25 +399,13 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\Facade.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\ILaberinto.h">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\ILaberintoBuilder.h">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\ILaberintoBuilder2.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\IPrototype.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\Laberinto.h">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\Laberinto2.h">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\Laberinto2Concreto.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\LaberintoConcreto.h">

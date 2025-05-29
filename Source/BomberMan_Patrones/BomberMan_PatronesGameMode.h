@@ -26,9 +26,11 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
 	class ALaberintoConcreto* BuilderLab;
 
-
+//PROTOTYPE:
 public:
-	//PROTOTYPE
-	//UPROPERTY(EditAnywhere)
-	//AActor* BloquePrototype;
+	UPROPERTY()
+	class ABloqueEspecial* BloqueBase;
+
+//FACADE
+
 };

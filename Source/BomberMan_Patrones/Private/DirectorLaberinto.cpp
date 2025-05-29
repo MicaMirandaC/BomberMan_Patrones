@@ -51,6 +51,7 @@ ALaberinto* ADirectorLaberinto::GetLaberinto()
 
 void ADirectorLaberinto::ConstruirLaberinto()
 {
+
 	if (!LaberintoBuilder)
 	{
 		UE_LOG(LogTemp, Error,

@@ -32,7 +32,6 @@ struct Z_Construct_UClass_AEnemigoAereo_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * \n */" },
 #endif
-		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "EnemigoAereo.h" },
 		{ "ModuleRelativePath", "Public/EnemigoAereo.h" },
 	};
@@ -50,7 +49,7 @@ UObject* (*const Z_Construct_UClass_AEnemigoAereo_Statics::DependentSingletons[]
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemigoAereo_Statics::DependentSingletons) < 16);
 const UECodeGen_Private::FClassParams Z_Construct_UClass_AEnemigoAereo_Statics::ClassParams = {
 	&AEnemigoAereo::StaticClass,
-	"Game",
+	"Engine",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	nullptr,
@@ -75,7 +74,6 @@ template<> BOMBERMAN_PATRONES_API UClass* StaticClass<AEnemigoAereo>()
 {
 	return AEnemigoAereo::StaticClass();
 }
-AEnemigoAereo::AEnemigoAereo() {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(AEnemigoAereo);
 AEnemigoAereo::~AEnemigoAereo() {}
 // End Class AEnemigoAereo
@@ -84,10 +82,10 @@ AEnemigoAereo::~AEnemigoAereo() {}
 struct Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoAereo_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemigoAereo, AEnemigoAereo::StaticClass, TEXT("AEnemigoAereo"), &Z_Registration_Info_UClass_AEnemigoAereo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemigoAereo), 325143966U) },
+		{ Z_Construct_UClass_AEnemigoAereo, AEnemigoAereo::StaticClass, TEXT("AEnemigoAereo"), &Z_Registration_Info_UClass_AEnemigoAereo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemigoAereo), 547834137U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoAereo_h_3569282551(TEXT("/Script/BomberMan_Patrones"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoAereo_h_1631407740(TEXT("/Script/BomberMan_Patrones"),
 	Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoAereo_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoAereo_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

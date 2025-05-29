@@ -19,7 +19,7 @@ private: \
 	static void StaticRegisterNativesAEnemigo(); \
 	friend struct Z_Construct_UClass_AEnemigo_Statics; \
 public: \
-	DECLARE_CLASS(AEnemigo, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BomberMan_Patrones"), NO_API) \
+	DECLARE_CLASS(AEnemigo, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BomberMan_Patrones"), NO_API) \
 	DECLARE_SERIALIZER(AEnemigo)
 
 

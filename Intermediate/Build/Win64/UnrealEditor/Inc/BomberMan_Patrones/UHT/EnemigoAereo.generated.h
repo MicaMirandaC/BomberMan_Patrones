@@ -24,8 +24,6 @@ public: \
 
 
 #define FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoAereo_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AEnemigoAereo(); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AEnemigoAereo(AEnemigoAereo&&); \
