@@ -58,19 +58,25 @@ void ABloqueEspecial::Tick(float DeltaTime)
 	if (FMath::Abs(Pos.Z - AlturaInicial) > 50.0f)
 		Subiendo = !Subiendo;
 }
+
 AActor* ABloqueEspecial::Clonar(FVector Pos, FRotator Rot)
 {
-	//Crea una instancia de FActorSpawnParameters
-	//nos permite configurar opciones avanzadas al momento de crear un nuevo actor con spawn
-	//Mayor FIDELIDAD al clonar, esata funcion es la que nos asegura copiar las propiedades
-	FActorSpawnParameters Parametros;
-	Parametros.Template = this; // Usa este actor como plantilla
+	{
+		//Asegura que el World esté disponible (necesario para spawn)
+		if (!GetWorld()) return nullptr;
+		//Crea una instancia de FActorSpawnParameters nos permite configurar opciones avanzadas al momento de crear un nuevo actor con spawn
+		//Mayor FIDELIDAD al clonar, esta funcion es la que nos asegura copiar las propiedades
+		FActorSpawnParameters Parametros;
+		Parametros.Template = this; // Usa este actor como plantilla
 
-	//Crea uno nuevo con la misma clase posicion y rotacion
-	return GetWorld()->SpawnActor<ABloqueEspecial>(GetClass(), Pos, Rot, Parametros);
+		//Hace una copia exacta del actor actual y se devuelve
+		return GetWorld()->SpawnActor<ABloqueEspecial>(GetClass(), Pos, Rot, Parametros);
 
 
-}
+	}
+}	
+
+/*
 //Cambiar el nombre del actor
 void ABloqueEspecial::Configurar(FString Nombre)
 {
@@ -81,5 +87,6 @@ void ABloqueEspecial::Configurar(FString Nombre)
 	SetActorScale3D(FVector(Escala)); // Escala uniforme en X, Y, Z
 
 	// Mensaje para depurar
-	UE_LOG(LogTemp, Warning, TEXT("Configurando %s con escala %.2f"), *Nombre, Escala);*/
+	UE_LOG(LogTemp, Warning, TEXT("Configurando %s con escala %.2f"), *Nombre, Escala);
 }
+*/

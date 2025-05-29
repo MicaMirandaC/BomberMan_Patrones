@@ -25,8 +25,6 @@ public:
 	virtual AActor* Clonar(FVector Pos, FRotator Rot) = 0;
 	
 	
-	
-	
 	//Funcion para ajustes personalizados del clon
 	//virtual void Configurar(FString Nombre) = 0;
 };

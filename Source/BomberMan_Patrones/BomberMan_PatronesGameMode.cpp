@@ -41,23 +41,22 @@ void ABomberMan_PatronesGameMode::BeginPlay()
 
 	//PROTOTYPE
 	
-	// Crear un bloque base (el prototipo)
-	BloqueBase = GetWorld()->SpawnActor<ABloqueEspecial>();
+	// Crea el bloque base, para que sea visible en el mundo
+	FVector PosBase = FVector(0.f, 0.f, 100.f);
+	FRotator RotBase = FRotator::ZeroRotator;
 
-
-	// Clonar múltiples veces
-	for (int32 i = 0; i < 5; i++)
+	BloqueBase = GetWorld()->SpawnActor<ABloqueEspecial>(ABloqueEspecial::StaticClass(), PosBase, RotBase);
+	//Si el bloque se creo correctamente se crearan clones
+	if (BloqueBase)
 	{
-		FVector Pos = FVector(300.f * (i + 1), 0.f, 0.f);
-		FRotator Rot = FRotator::ZeroRotator;
-
-		AActor* NuevoBloque = BloqueBase->Clonar(Pos, Rot);
-
-		if (ABloqueEspecial* Clon = Cast<ABloqueEspecial>(NuevoBloque))
+		// Solo se encarga de indicar cuántos clones y sus posiciones
+		for (int32 i = 0; i < 5; i++)
 		{
-			Clon->Configurar(FString::Printf(TEXT("Bloque_%d"), i + 1));
+			FVector PosClon = FVector(300.f * (i + 1), 0.f, 0.f);
+			BloqueBase->Clonar(PosClon, RotBase);
 		}
 	}
+
 
 	//Facade
 	auto Facade = GetWorld()->SpawnActor<AEnemigoFacade>();
@@ -71,4 +70,10 @@ void ABomberMan_PatronesGameMode::BeginPlay()
 		}, 3.0f, false);
 }
 	
-	
+//PROTOYPE CON LA CONFIGURACION
+/*
+if (ABloqueEspecial* Clon = Cast<ABloqueEspecial>(NuevoBloque))
+		{
+			Clon->Configurar(FString::Printf(TEXT("Bloque_%d"), i + 1));
+		}
+*/
