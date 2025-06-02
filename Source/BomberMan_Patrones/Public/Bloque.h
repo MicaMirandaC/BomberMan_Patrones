@@ -28,5 +28,5 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	// Método Prototype puro
-	virtual AActor* Clonar(UWorld* Mundo, const FVector& NuevaPosicion)override;
+	virtual AActor* Clonar(UWorld* Mundo, FVector Destino) override;
 };

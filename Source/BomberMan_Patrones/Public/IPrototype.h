@@ -21,7 +21,7 @@ class BOMBERMAN_PATRONES_API IIPrototype
 	GENERATED_BODY()
 
 public:
-	virtual AActor* Clonar(UWorld* Mundo, const FVector& NuevaPosicion) = 0;
+	virtual AActor* Clonar(UWorld* Mundo, FVector Destino) = 0;
 
 
 

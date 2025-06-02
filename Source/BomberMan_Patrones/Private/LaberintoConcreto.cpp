@@ -26,7 +26,7 @@ ALaberintoConcreto::ALaberintoConcreto()
 	MapaDeBloques.Add(3, ABloqueLadrillo::StaticClass());
 	MapaDeBloques.Add(4, ABloqueAcero::StaticClass());
 	MapaDeBloques.Add(5, ABloqueRotador::StaticClass());
-	MapaDeBloques.Add(6, ABloqueMov::StaticClass());
+	//MapaDeBloques.Add(6, ABloqueMov::StaticClass());
 	
 
 	MapaDeObstaculos.Add(7, AObstaculo::StaticClass());
@@ -85,10 +85,11 @@ void ALaberintoConcreto::GenerandoMitadDerecha()
 	if (!Laberinto) return;
 
 	for (int32 i = 0; i < Filas; i++)
-	{
-		for (int32 j = Columnas / 2; j < Columnas; j++)
+	{//Para no generar bloques pegados al muro central
+		for (int32 j= (Columnas / 2) + 1; j < Columnas - 1; j++)
 		{
-			if (i > 0 && i < Filas - 1 && j > 0 && j < Columnas - 1)
+
+			if (i > 0 && i < Filas - 1 && j> 0 && j < Columnas - 1)
 			{
 				int32 Probabilidad = FMath::RandRange(0, 100); // de 0 a 100
 
@@ -114,7 +115,7 @@ void ALaberintoConcreto::ConstruirMitadDerecha()
 
 	for (int i = 0; i < Laberinto->aMapaBloques.Num(); ++i)
 	{
-		for (int j = Laberinto->aMapaBloques[i].Num()/ 2; j < Columnas; ++j)
+		for (int32 j = (Columnas / 2) + 1; j < Columnas - 1; j++)
 		{
 			int32 Tipo = Laberinto->aMapaBloques[i][j];
 
@@ -142,14 +143,13 @@ void ALaberintoConcreto::ClonarMitadIzquierda()
 
 	for (int32 i = 0; i < Filas; ++i)
 	{
-		for (int32 j = Columnas - 1; j >= Columnas / 2; --j)
+		for (int32 j = (Columnas / 2) + 1; j < Columnas - 1; j++)
 		{
 			int32 Tipo = Laberinto->aMapaBloques[i][j];
 
 			if (Tipo != 0 && Indice < BloquesDerecha.Num())
 			{
 				ABloque* BloqueOriginal = Cast<ABloque>(BloquesDerecha[Indice]);
-
 				if (BloqueOriginal)
 				{
 					int32 jEspejo = Columnas - j - 1;
@@ -161,8 +161,7 @@ void ALaberintoConcreto::ClonarMitadIzquierda()
 						AActor* Clonado = PrototypeReal->Clonar(GetWorld(), PosEspejo);
 					}
 				}
-
-				Indice++;
+				++Indice; // MOVER DENTRO DEL IF PARA ASEGURAR QUE SOLO AUMENTE SI SE USÓ
 			}
 		}
 	}

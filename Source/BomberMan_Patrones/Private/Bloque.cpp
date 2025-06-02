@@ -39,8 +39,23 @@ void ABloque::Tick(float DeltaTime)
 
 }
 //Funciona para todas las clases hijas
-AActor* ABloque::Clonar(UWorld* Mundo, const FVector& NuevaPosicion)
+AActor* ABloque::Clonar(UWorld* Mundo, FVector Destino)
 {
-	return Mundo->SpawnActor<AActor>(GetClass(), NuevaPosicion, FRotator::ZeroRotator);
+	UWorld* World = GetWorld();
+	if (!World) return nullptr;
+
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	ABloque* Clon = World->SpawnActor<ABloque>(GetClass(), Destino, FRotator::ZeroRotator, SpawnParams);
+
+	// Copia material si existe
+	if (Clon && MallaBloque && MallaBloque->GetMaterial(0))
+	{
+		Clon->MallaBloque->SetMaterial(0, MallaBloque->GetMaterial(0));
+	}
+
+	return Clon;
 }
+
 

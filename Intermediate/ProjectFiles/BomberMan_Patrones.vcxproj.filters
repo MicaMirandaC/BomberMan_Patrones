@@ -200,6 +200,5 @@
     <ClCompile Include="..\..\Source\BomberMan_Patrones\Public\Puerta.h">
       <Filter>Source\BomberMan_Patrones\Public</Filter>
     </ClCompile>
-    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
