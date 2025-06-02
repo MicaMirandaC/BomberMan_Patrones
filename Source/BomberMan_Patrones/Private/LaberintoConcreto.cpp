@@ -26,7 +26,7 @@ ALaberintoConcreto::ALaberintoConcreto()
 	MapaDeBloques.Add(3, ABloqueLadrillo::StaticClass());
 	MapaDeBloques.Add(4, ABloqueAcero::StaticClass());
 	MapaDeBloques.Add(5, ABloqueRotador::StaticClass());
-	//MapaDeBloques.Add(6, ABloqueMov::StaticClass());
+	MapaDeBloques.Add(6, ABloqueMov::StaticClass());
 	
 
 	MapaDeObstaculos.Add(7, AObstaculo::StaticClass());
