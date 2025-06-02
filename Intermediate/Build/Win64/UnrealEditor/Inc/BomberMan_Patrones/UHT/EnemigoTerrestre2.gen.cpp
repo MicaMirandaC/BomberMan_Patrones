@@ -82,10 +82,10 @@ AEnemigoTerrestre2::~AEnemigoTerrestre2() {}
 struct Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre2_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemigoTerrestre2, AEnemigoTerrestre2::StaticClass, TEXT("AEnemigoTerrestre2"), &Z_Registration_Info_UClass_AEnemigoTerrestre2, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemigoTerrestre2), 572369701U) },
+		{ Z_Construct_UClass_AEnemigoTerrestre2, AEnemigoTerrestre2::StaticClass, TEXT("AEnemigoTerrestre2"), &Z_Registration_Info_UClass_AEnemigoTerrestre2, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemigoTerrestre2), 2196807884U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre2_h_3355748285(TEXT("/Script/BomberMan_Patrones"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre2_h_1860661189(TEXT("/Script/BomberMan_Patrones"),
 	Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre2_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_EnemigoTerrestre2_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

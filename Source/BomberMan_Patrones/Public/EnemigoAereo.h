@@ -18,8 +18,8 @@ public:
 	AEnemigoAereo();
 
 public:
-	virtual void Custodia() override;
-	virtual void Ataca() override;
+	virtual void Patrullar() override;
+	virtual void Atacar() override;
 	
 	virtual FString NombreDelEnemigo() override;
 };

@@ -25,13 +25,10 @@ AEnemigo::AEnemigo()
 		MallaEnemigo->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
 	}
 
-	bMoverEnX = false;
-	bMoverEnY = false;
-	DistanciaMaxima = 0;
-	bDireccionAdelante = true;
-	VelocidadMovimiento = 100.0f; // Puedes ajustar este valor desde el editor
-
 	bAvanzandoHaciaLimite = true;
+	DistanciaMaxima = 0.f;
+	VelocidadMovimiento = 100.f;
+	DireccionMovimientoActual = EDireccionMovimiento::MoverX;
 }
 
 // Called when the game starts or when spawned
@@ -46,85 +43,77 @@ void AEnemigo::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	FVector PosicionActual = GetActorLocation();
-	float NuevaX = PosicionActual.X;
-	float NuevaY = PosicionActual.Y;
+	FVector PosicionActual = GetActorLocation();  // 1. Obtenemos la posición actual del enemigo
+	float Movimiento = VelocidadMovimiento * DeltaTime;  // 2. Calculamos cuánto debe moverse este frame
+	float DistanciaRecorrida = 0.f;  // 3. Variable auxiliar
 
-	if (bMoverEnX)
+	switch (DireccionMovimientoActual)
 	{
+	case EDireccionMovimiento::MoverX:
+		// 4. Movemos el enemigo hacia adelante o atrás en X
 		if (bAvanzandoHaciaLimite)
-		{
-			NuevaX += VelocidadMovimiento * DeltaTime;
-			if (FMath::Abs(NuevaX - PosicionInicial.X) >= DistanciaMaxima)
-			{
-				bAvanzandoHaciaLimite = false;
-			}
-		}
+			PosicionActual.X += Movimiento;
 		else
-		{
-			NuevaX -= VelocidadMovimiento * DeltaTime;
-			if (NuevaX <= PosicionInicial.X)
-			{
-				NuevaX = PosicionInicial.X;
-				bAvanzandoHaciaLimite = true;
-			}
-		}
-		SetActorLocation(FVector(NuevaX, PosicionInicial.Y, PosicionActual.Z));
-	}
-	else if (bMoverEnY)
-	{
+			PosicionActual.X -= Movimiento;
+
+		// 5. Calculamos cuánto se ha alejado del punto inicial en X
+		DistanciaRecorrida = FMath::Abs(PosicionActual.X - PosicionInicial.X);
+
+		// 6. Si nos pasamos del límite, invertimos dirección
+		if (DistanciaRecorrida >= DistanciaMaxima)
+			bAvanzandoHaciaLimite = !bAvanzandoHaciaLimite;
+
+		break;
+
+	case EDireccionMovimiento::MoverY:
 		if (bAvanzandoHaciaLimite)
-		{
-			NuevaY += VelocidadMovimiento * DeltaTime;
-			if (FMath::Abs(NuevaY - PosicionInicial.Y) >= DistanciaMaxima)
-			{
-				bAvanzandoHaciaLimite = false;
-			}
-		}
+			PosicionActual.Y += Movimiento;
 		else
-		{
-			NuevaY -= VelocidadMovimiento * DeltaTime;
-			if (NuevaY <= PosicionInicial.Y)
-			{
-				NuevaY = PosicionInicial.Y;
-				bAvanzandoHaciaLimite = true;
-			}
-		}
-		SetActorLocation(FVector(PosicionInicial.X, NuevaY, PosicionActual.Z));
+			PosicionActual.Y -= Movimiento;
+
+		DistanciaRecorrida = FMath::Abs(PosicionActual.Y - PosicionInicial.Y);
+
+		if (DistanciaRecorrida >= DistanciaMaxima)
+			bAvanzandoHaciaLimite = !bAvanzandoHaciaLimite;
+
+		break;
+
+	case EDireccionMovimiento::ElevarZ:
+		// Movimiento instantáneo a una altura fija
+		PosicionActual.Z = PosicionInicial.Z + DistanciaMaxima;
+		
+		if (bAvanzandoHaciaLimite)
+			PosicionActual.X += Movimiento;
+		else
+			PosicionActual.X -= Movimiento;
+
+		// 5. Calculamos cuánto se ha alejado del punto inicial en X
+		DistanciaRecorrida = FMath::Abs(PosicionActual.X - PosicionInicial.X);
+
+		// 6. Si nos pasamos del límite, invertimos dirección
+		if (DistanciaRecorrida >= DistanciaMaxima)
+			bAvanzandoHaciaLimite = !bAvanzandoHaciaLimite;
+		break;
 	}
+
+	SetActorLocation(PosicionActual);  // 7. Aplicamos la nueva posición al enemigo
 }
 
-void AEnemigo::Custodia()
+void AEnemigo::Patrullar()
 {
 }
 
-void AEnemigo::Ataca()
+void AEnemigo::Atacar()
 {
 }
 
-// Movimiento completo de ida y vuelta (sin necesidad de usar Tick)
-void AEnemigo::MoverEnX_IdaYVuelta(float Distancia)
+
+
+void AEnemigo::ConfigurarMovimiento(FVector PosInicial, float Distancia, float Velocidad, EDireccionMovimiento Direccion)
 {
+	PosicionInicial = PosInicial;
 	DistanciaMaxima = Distancia;
-	bMoverEnX = true;
-	bMoverEnY = false;
-	PosicionInicial = GetActorLocation();
+	VelocidadMovimiento = Velocidad;
+	DireccionMovimientoActual = Direccion;
 	bAvanzandoHaciaLimite = true;
 }
-
-void AEnemigo::MoverEnY_IdaYVuelta(float Distancia)
-{
-	DistanciaMaxima = Distancia;
-	bMoverEnY = true;
-	bMoverEnX = false;
-	PosicionInicial = GetActorLocation();
-	bAvanzandoHaciaLimite = true;
-}
-
-void AEnemigo::Elevarse(float Altura)
-{
-	FVector Pos = GetActorLocation();
-	Pos.Z = Altura;
-	SetActorLocation(Pos);
-}
-

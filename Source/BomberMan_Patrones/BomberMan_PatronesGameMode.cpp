@@ -59,15 +59,13 @@ void ABomberMan_PatronesGameMode::BeginPlay()
 
 
 	//Facade
-	auto Facade = GetWorld()->SpawnActor<AEnemigoFacade>();
+	AEnemigoFacade* MiFachada = GetWorld()->SpawnActor<AEnemigoFacade>();
+	MiFachada->InicializarEnemigos();
 
-	Facade->Custodiar();
+	// Hacer patrullar en nivel 1
+	//MiFachada->Nivel1();
+	MiFachada->Nivel2();
 
-	FTimerHandle Timer;
-	GetWorld()->GetTimerManager().SetTimer(Timer, [=]()
-		{
-			Facade->Atacar();
-		}, 3.0f, false);
 }
 	
 //PROTOYPE CON LA CONFIGURACION

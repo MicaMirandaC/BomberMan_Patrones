@@ -19,8 +19,8 @@ public:
 
 public:
 	// Sobrescribimos las funciones virtuales
-	virtual void Custodia() override;
-	virtual void Ataca() override;
+	virtual void Patrullar() override;
+	virtual void Atacar() override;
 
 	virtual FString NombreDelEnemigo() override;
 };

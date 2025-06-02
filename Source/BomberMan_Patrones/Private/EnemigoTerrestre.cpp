@@ -17,16 +17,14 @@ AEnemigoTerrestre::AEnemigoTerrestre()
     }
 }
 
-void AEnemigoTerrestre::Custodia()
+void AEnemigoTerrestre::Patrullar()
 {
-	// Movimiento ida y vuelta en X
-	MoverEnX_IdaYVuelta(1000);
+    ConfigurarMovimiento(GetActorLocation(), 1000.f, 10.f, EDireccionMovimiento::MoverX);
 }
 
-void AEnemigoTerrestre::Ataca()
+void AEnemigoTerrestre::Atacar()
 {
-	// Movimiento directo hacia adelante en X
-	MoverEnX_IdaYVuelta(300);
+    ConfigurarMovimiento(GetActorLocation(), 1000.f, 100.f, EDireccionMovimiento::MoverX);
 }
 
 

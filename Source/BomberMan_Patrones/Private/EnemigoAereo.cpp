@@ -17,20 +17,19 @@ AEnemigoAereo::AEnemigoAereo()
     }
 }
 
-void AEnemigoAereo::Custodia()
+void AEnemigoAereo::Patrullar()
 {
-	Elevarse(500);
-	MoverEnX_IdaYVuelta(100);
+    ConfigurarMovimiento(GetActorLocation(), 0.f, 0.f, EDireccionMovimiento::ElevarZ);
+
 }
 
-void AEnemigoAereo::Ataca()
+void AEnemigoAereo::Atacar()
 {
-	Elevarse(500);
-	MoverEnX_IdaYVuelta(300);
+    ConfigurarMovimiento(GetActorLocation(), 1000.f, 0.f, EDireccionMovimiento::ElevarZ);
 }
 
 
 FString AEnemigoAereo::NombreDelEnemigo()
 {
 	return "Enemigo Aéreo";
-}
+}//void ConfigurarMovimiento(FVector PosInicial, float Distancia, float Velocidad, EDireccionMovimiento Direccion);

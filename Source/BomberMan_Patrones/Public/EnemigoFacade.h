@@ -22,30 +22,20 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	//Punteros hacia lso enemigos
-	AEnemigoTerrestre* enemigoT1;
-	AEnemigoTerrestre2* enemigoT2;
-	AEnemigoAereo* enemigoAereo;
-
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 public:
-	//Poque no le puse subclases
-	//TArray<FString> Tareas;
+	
 	TArray<AEnemigo*> Enemigos;
 
-	//Funciones generales 
-	void Custodiar();
-	void Atacar();
+	//Funciones para gestionar a los enemigos
+	void AgregarEnemigo(AEnemigo* enemigo);
+	void InicializarEnemigos();
 
-	//Yano porque seran funciones directas y no se dividiran en subfunciones
-	//void performTask(TArray<AEnemigo*> _enemigos,
-		//TArray<FString> _tareas);
-		
-//Para que se ejecute uno despues del otro
-//private: 
-	// TimerHandles para manejar el tiempo entre niveles
-	//FTimerHandle TimerHandleAtacar;
+	//Funciones generales 
+	void Nivel1();//Patrullar
+	void Nivel2();//Atacar
+
 };

@@ -18,14 +18,14 @@ AEnemigoTerrestre2::AEnemigoTerrestre2()
 }
 
 
-void AEnemigoTerrestre2::Custodia()
+void AEnemigoTerrestre2::Patrullar()
 {
-	MoverEnY_IdaYVuelta(100);
+    ConfigurarMovimiento(GetActorLocation(), 300.f, 10.f, EDireccionMovimiento::MoverY);
 }
 
-void AEnemigoTerrestre2::Ataca()
+void AEnemigoTerrestre2::Atacar()
 {
-	MoverEnY_IdaYVuelta(300);
+    ConfigurarMovimiento(GetActorLocation(), 300.f, 100.f, EDireccionMovimiento::MoverY);
 }
 
 
