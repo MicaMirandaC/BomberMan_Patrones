@@ -11,13 +11,11 @@ class BOMBERMAN_PATRONES_API ALaberintoConcreto : public AActor, public IILaberi
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
-	//ESTE ES EL BUILDER
+
 	ALaberintoConcreto();
 
 private:
-	//Es un puntero a un objeto de la clase ALaberinto
-	//Referencia al producto final
+	//Es un puntero a un objeto de la clase ALaberinto, referencia al producto final
 	class ALaberinto* Laberinto;
 
 protected:
@@ -30,14 +28,13 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	// Constructor de laberinto
-
 	void GenerandoMitadDerecha() override;
 	void ConstruirMuros() override;
 	void ConstruirMitadDerecha() override;
 	void ClonarMitadIzquierda() override;
 	virtual class ALaberinto* GetLaberinto() override;
 	
-	//PROTOTYPE
+	//Para los bloques que deben ser clonados
 	TArray<ABloque*> BloquesDerecha;
 
 	//TMap: Asocia los numeros enteros con las subclases derivadas de actor
@@ -47,6 +44,10 @@ public:
 	TMap<int32, TSubclassOf<AActor>> MapaDePuertas;
 	TMap<int32, TSubclassOf<AActor>> MapaDeObstaculos;
 	
+
+
+
+
 	//Solo para asegurar que se inicialice bien
 	// Constantes para posición inicial
 	float XInicial = 0.0f;

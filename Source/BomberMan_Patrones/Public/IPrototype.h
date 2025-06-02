@@ -21,17 +21,8 @@ class BOMBERMAN_PATRONES_API IIPrototype
 	GENERATED_BODY()
 
 public:
+	//UWorld* Mundo: el mundo donde se va a clonar el actor, posicion para lo que indica su nombre
 	virtual AActor* Clonar(UWorld* Mundo, FVector Destino) = 0;
 
 
-
-
-
-	//Para LAB
-	//Clona un bloque con una posición y rotación específica.
-	//virtual AActor* Clonar(FVector Pos, FRotator Rot) = 0;
-	
-	
-	//Funcion para ajustes personalizados del clon
-	//virtual void Configurar(FString Nombre) = 0;
 };
