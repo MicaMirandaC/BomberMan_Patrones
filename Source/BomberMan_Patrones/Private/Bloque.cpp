@@ -38,4 +38,9 @@ void ABloque::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
+//Funciona para todas las clases hijas
+AActor* ABloque::Clonar(UWorld* Mundo, const FVector& NuevaPosicion)
+{
+	return Mundo->SpawnActor<AActor>(GetClass(), NuevaPosicion, FRotator::ZeroRotator);
+}
 

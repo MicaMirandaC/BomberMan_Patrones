@@ -82,10 +82,10 @@ ABloqueRotador::~ABloqueRotador() {}
 struct Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_BloqueRotador_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABloqueRotador, ABloqueRotador::StaticClass, TEXT("ABloqueRotador"), &Z_Registration_Info_UClass_ABloqueRotador, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABloqueRotador), 522230036U) },
+		{ Z_Construct_UClass_ABloqueRotador, ABloqueRotador::StaticClass, TEXT("ABloqueRotador"), &Z_Registration_Info_UClass_ABloqueRotador, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABloqueRotador), 54208391U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_BloqueRotador_h_135315706(TEXT("/Script/BomberMan_Patrones"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_BloqueRotador_h_414980940(TEXT("/Script/BomberMan_Patrones"),
 	Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_BloqueRotador_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_BloqueRotador_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -7,7 +7,7 @@
 ABloqueEspecial::ABloqueEspecial()
 {
 	PrimaryActorTick.bCanEverTick = true;
-
+	/*
 	//Representa la malla del bloque
 	MallaBloqueEspecial = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaBloque"));
 	//Adjunta la malla al componente
@@ -32,7 +32,7 @@ ABloqueEspecial::ABloqueEspecial()
 			MallaBloqueEspecial->SetMaterial(0, MaterialBase.Object); // Asignar el material al slot 0
 		}
 	}
-	Subiendo = true;
+	Subiendo = true;*/
 
 }
 
@@ -41,14 +41,14 @@ void ABloqueEspecial::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	AlturaInicial = GetActorLocation().Z;
+	//AlturaInicial = GetActorLocation().Z;
 }
 
 // Called every frame
 void ABloqueEspecial::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	/*
 	FVector Pos = GetActorLocation();
 	float Desplazamiento = 20.0f * DeltaTime;
 
@@ -56,9 +56,10 @@ void ABloqueEspecial::Tick(float DeltaTime)
 	SetActorLocation(Pos);
 
 	if (FMath::Abs(Pos.Z - AlturaInicial) > 50.0f)
-		Subiendo = !Subiendo;
+		Subiendo = !Subiendo;*/
 }
 
+/*
 AActor* ABloqueEspecial::Clonar(FVector Pos, FRotator Rot)
 {
 	{

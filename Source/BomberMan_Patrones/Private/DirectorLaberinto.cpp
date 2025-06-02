@@ -37,18 +37,6 @@ void ADirectorLaberinto::EstablecerILaberintoBuilder(IILaberintoBuilder* Builder
 	}
 }
 
-ALaberinto* ADirectorLaberinto::GetLaberinto()
-{
-	if (LaberintoBuilder)
-	{
-		//Returns the Lodging of the Builder
-		return LaberintoBuilder->GetLaberinto();
-	}
-	//Log if the Builder is NULL
-	UE_LOG(LogTemp, Error, TEXT("GetLodging(): Return nullptr"));
-	return nullptr;
-}
-
 void ADirectorLaberinto::ConstruirLaberinto()
 {
 
@@ -60,8 +48,20 @@ void ADirectorLaberinto::ConstruirLaberinto()
 	}
 
 	// Estas líneas se ejecutan solo si el builder está correctamente asignado
-	LaberintoBuilder->ConstruirBloques();
 	LaberintoBuilder->ConstruirMuros();
-	LaberintoBuilder->ConstruirPuertas();
-	LaberintoBuilder->ConstruirObstaculos();
+	LaberintoBuilder->GenerandoMitadDerecha();
+	LaberintoBuilder->ConstruirMitadDerecha();
+	LaberintoBuilder->ClonarMitadIzquierda();
+}
+
+ALaberinto* ADirectorLaberinto::GetLaberinto()
+{
+	if (LaberintoBuilder)
+	{
+		//Returns the Lodging of the Builder
+		return LaberintoBuilder->GetLaberinto();
+	}
+	//Log if the Builder is NULL
+	UE_LOG(LogTemp, Error, TEXT("GetLodging(): Return nullptr"));
+	return nullptr;
 }

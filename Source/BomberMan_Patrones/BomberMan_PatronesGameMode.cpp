@@ -8,7 +8,7 @@
 #include "DirectorLaberinto.h"
 #include "LaberintoConcreto.h"
 #include "IPrototype.h"
-#include "BloqueEspecial.h"
+//#include "BloqueEspecial.h"
 #include "EnemigoFacade.h"
 
 ABomberMan_PatronesGameMode::ABomberMan_PatronesGameMode()
@@ -33,14 +33,16 @@ void ABomberMan_PatronesGameMode::BeginPlay()
 	// Spawn del Director
 	DirectorLab = GetWorld()->SpawnActor<ADirectorLaberinto>(ADirectorLaberinto::StaticClass());
 
+	//Le dices al Director qué Builder va a usar
+
 	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
 	
 	DirectorLab->ConstruirLaberinto();	
-	
+	//Obtener el laberinto construido por el Director
 	ALaberinto* Laberinto = DirectorLab->GetLaberinto();
 
 	//PROTOTYPE
-	
+	/*
 	// Crea el bloque base, para que sea visible en el mundo
 	FVector PosBase = FVector(0.f, 0.f, 100.f);
 	FRotator RotBase = FRotator::ZeroRotator;
@@ -55,7 +57,7 @@ void ABomberMan_PatronesGameMode::BeginPlay()
 			FVector PosClon = FVector(300.f * (i + 1), 0.f, 0.f);
 			BloqueBase->Clonar(PosClon, RotBase);
 		}
-	}
+	}*/
 
 
 	//Facade

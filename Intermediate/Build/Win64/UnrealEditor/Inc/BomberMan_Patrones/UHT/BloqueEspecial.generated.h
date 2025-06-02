@@ -20,8 +20,7 @@ private: \
 	friend struct Z_Construct_UClass_ABloqueEspecial_Statics; \
 public: \
 	DECLARE_CLASS(ABloqueEspecial, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BomberMan_Patrones"), NO_API) \
-	DECLARE_SERIALIZER(ABloqueEspecial) \
-	virtual UObject* _getUObject() const override { return const_cast<ABloqueEspecial*>(this); }
+	DECLARE_SERIALIZER(ABloqueEspecial)
 
 
 #define FID_Users_Mica_Documents_Unreal_Projects_BomberMan_Patrones_Source_BomberMan_Patrones_Public_BloqueEspecial_h_12_ENHANCED_CONSTRUCTORS \

@@ -21,8 +21,15 @@ class BOMBERMAN_PATRONES_API IIPrototype
 	GENERATED_BODY()
 
 public:
+	virtual AActor* Clonar(UWorld* Mundo, const FVector& NuevaPosicion) = 0;
+
+
+
+
+
+	//Para LAB
 	//Clona un bloque con una posición y rotación específica.
-	virtual AActor* Clonar(FVector Pos, FRotator Rot) = 0;
+	//virtual AActor* Clonar(FVector Pos, FRotator Rot) = 0;
 	
 	
 	//Funcion para ajustes personalizados del clon

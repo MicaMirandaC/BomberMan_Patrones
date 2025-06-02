@@ -1,13 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
-
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "IPrototype.h"
 #include "Bloque.generated.h"
 
 UCLASS()
-class BOMBERMAN_PATRONES_API ABloque : public AActor
+class BOMBERMAN_PATRONES_API ABloque : public AActor, public IIPrototype
 {
 	GENERATED_BODY()
 	
@@ -28,4 +27,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// Método Prototype puro
+	virtual AActor* Clonar(UWorld* Mundo, const FVector& NuevaPosicion)override;
 };

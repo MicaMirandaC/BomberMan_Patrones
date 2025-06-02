@@ -25,8 +25,8 @@ public:
 	//Las funciones virtuales puras
 
 	virtual void ConstruirMuros() = 0;
-	virtual void ConstruirBloques() = 0;
-	virtual void ConstruirPuertas() = 0;
-	virtual void ConstruirObstaculos() = 0;
+	virtual void GenerandoMitadDerecha() = 0;
+	virtual void ConstruirMitadDerecha() = 0;
+	virtual void ClonarMitadIzquierda() = 0;
 	virtual class ALaberinto* GetLaberinto() = 0;
 };
