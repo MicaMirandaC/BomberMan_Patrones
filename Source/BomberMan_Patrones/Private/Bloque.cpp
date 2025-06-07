@@ -44,6 +44,8 @@ AActor* ABloque::Clonar(UWorld* Mundo, FVector Destino)
 	//Obtiene el puntero al mundo actual
 	UWorld* World = GetWorld();
 	if (!World) return nullptr;
+
+	//Crea una instancia de FActorSpawnParameters
 	//Copia los parametros sin importar e ignorando cualquier colision
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;

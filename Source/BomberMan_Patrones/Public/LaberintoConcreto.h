@@ -54,7 +54,4 @@ public:
 	float YInicial = 0.0f;
 	float ZInicial = 0.0f;
 
-	// Tamaño del mapa (filas y columnas)
-	int32 Filas = 0;
-	int32 Columnas = 0;
 };

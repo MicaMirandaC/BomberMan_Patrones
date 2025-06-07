@@ -39,9 +39,6 @@ ALaberintoConcreto::ALaberintoConcreto()
 	YInicial = 60.0f;
 	ZInicial = 0.0f;
 
-	Filas = 20;    // acorde a aMapaBloques.Num()
-	Columnas = 20;// acorde a aMapaBloques[0].Num()
-
 }
 
 // Called when the game starts or when spawned
@@ -87,9 +84,12 @@ void ALaberintoConcreto::ConstruirMuros()
 void ALaberintoConcreto::GenerandoMitadDerecha()
 {
 	if (!Laberinto) return;
+	int32 Filas = Laberinto->aMapaBloques.Num();
+	int32 Columnas = Laberinto->aMapaBloques[0].Num();
 
 	for (int32 i = 0; i < Filas; i++)
-	{//Para no generar bloques pegados al muro central
+	{
+		//Para no generar bloques pegados al muro central
 		for (int32 j= (Columnas / 2) + 1; j < Columnas - 1; j++)
 		{
 			//Evita los bordes para no generar bloques en los extremos.
@@ -117,6 +117,9 @@ void ALaberintoConcreto::ConstruirMitadDerecha()
 	UWorld* Mundo = GetWorld();
 	//Para clonar
 	BloquesDerecha.Empty(); // Limpiar antes de guardar nuevos
+	
+	int32 Filas = Laberinto->aMapaBloques.Num();
+	int32 Columnas = Laberinto->aMapaBloques[0].Num();
 
 	for (int i = 0; i < Laberinto->aMapaBloques.Num(); ++i)
 	{
@@ -149,6 +152,9 @@ void ALaberintoConcreto::ClonarMitadIzquierda()
 
 	//Indice servirá para recorrer los bloques guardados de la derecha.
 	int32 Indice = 0;
+
+	int32 Filas = Laberinto->aMapaBloques.Num();
+	int32 Columnas = Laberinto->aMapaBloques[0].Num();
 
 	for (int32 i = 0; i < Filas; ++i)
 	{

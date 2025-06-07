@@ -11,7 +11,7 @@ class BOMBERMAN_PATRONES_API ABloque : public AActor, public IIPrototype
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
+	//Constructor
 	ABloque();
 
 protected:
